@@ -2,7 +2,7 @@ import itertools
  
  
 def myTask( list ):               # Definition of the function
- already_exists = ''
+ listOfStrResult = []
  oneList = []
  uniqueList = []
  uniqueNumber = 0
@@ -12,9 +12,9 @@ def myTask( list ):               # Definition of the function
  for subList1 , subList2 in itertools.combinations( list , 2 ):
    for element1 , element2 in itertools.product( subList1 , subList2 ):
      if ( element1 == element2):
-       if ( already_exists != element1 ):
-         already_exists = element1
-         print ( "Strings that appear in more than one list:" , element1 )
+       if ( element1 not in listOfStrResult ):
+         listOfStrResult.append(element1)
+ print ("Strings that appear in more than one list:" , *listOfStrResult )        
  
 # Print 2
  for subList in list :
